@@ -1,5 +1,7 @@
 ### To do list web
-The to-do list is a web application built with Spring Boot that allows users to create, read, update, delete (CRUD) tasks from a web page
+The to-do list is a web application built with Spring Boot that allows users to create, read, update, delete tasks
+
+It includes a simple frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, and H2 database
 
 #### Steps:
 ##### 1. Go to Spring initializr:
@@ -49,22 +51,24 @@ The to-do list is a web application built with Spring Boot that allows users to 
 ```
 
 ##### 6. Run:
-- Run the TodoApplication.java in IntelliJ
+- Run the TodoApplication.java in the IntelliJ
 
 ##### 7. Open your browser and go to:
       http://localhost:8080/index.html
 
 #### Feacures:
-- Add Task: Enter a title (required) and description (optional)
-- View Tasks: Shows all tasks in a list
-- Update Task: Edit title, description, or mark as completed
-- Delete Task: Remove tasks from the list
-- Validation: validate every process
-
+##### Frontend:
 - Add task: enter a title (required) and description (optional) to create a new task
 - View tasks: see all tasks listed with their current status
 - Update task: edit title, description, or mark a task as completed
 - Delete task: remove tasks from the list
-- Validation: validates fields and shows error messages if invalid
+- Validation (client-side): validates fields and shows error messages if invalid
+
+##### Backend:
+- Task management APIs: provides endpoints for create, read, update, delete operations
+- Error handling: friendly error responses
+- Data persistence: tasks stored in H2 in-memory database while the application is running
+- Business logic: handles all task-related logic, like marking completed, updating details, and verifying existence
+- Validation (server-side): validates fields and shows error messages if invalid
 
 #### Screenshot:
