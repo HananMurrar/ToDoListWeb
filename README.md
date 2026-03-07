@@ -26,28 +26,27 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 📁 todo/
 └── src/
     └── main/java/com/example/todo/
-        ├── TodoApplication.java
-
+        ├── TodoApplication.java   
         ├── controller/
-            └── TaskController.java
+            └── TaskController.java        // Handles API endpoints
         ├── service/
-            └── TaskService.java
-        ├── model/
-            └── Task.java
+            └── TaskService.java           // Contains business logic
         ├── repository/
-            └── TaskRepository.java
+            └── TaskRepository.java        // Interacts with H2 database
+        ├── model/
+            └── Task.java                  // Entity representing a task
         ├── dto/
-            ├── TaskRequestDTO.java
-            └── TaskResponseDTO.java
+            ├── TaskRequestDTO.java        // DTO for incoming requests
+            └── TaskResponseDTO.java       // DTO for outgoing responses
         └── exception/
-            ├── TaskNotFoundException.java
-            ├── TaskDataInvalidException.java
-            └── GlobalExceptionHandler.java
+            ├── TaskNotFoundException.java       
+            ├── TaskDataInvalidException.java    
+            └── GlobalExceptionHandler.java      
 
     └── main/resources/static/
-        └── index.html
+        └── index.html                  
     └── main/resources/
-        └── application.properties
+        └── application.properties        
 ```
 
 ##### 6. Run:
@@ -62,17 +61,19 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - View tasks: see all tasks listed with their current status
 - Update task: edit title, description, or mark a task as completed
 - Delete task: remove tasks from the list
-- Validation (client-side): validates fields and shows error messages if invalid
+- Client-side validation: prevents invalid inputs before sending them to the server
 
 ##### Backend:
 - Task management APIs: provides endpoints for create, read, update, delete operations
 - Error handling: friendly error responses
 - Data persistence: tasks stored in H2 in-memory database while the application is running
-- Business logic: handles all task-related logic, like marking completed, updating details, and verifying existence
-- Validation (server-side): validates fields and shows error messages if invalid
-- Backend ensures data integrity and returns proper HTTP status codes for errors
+- Business logic: handles task updates, completion status, data validation
+- Data storage: tasks are stored in H2 in-memory database
+- Server-side validation: ensures tasks have valid data
 
-#### Test - Backend API endpoints:
+### API usage examples:
+The following shows how to interact with the backend API for managing tasks
+
 ##### Get all tasks:
 - Method: GET
 - URL: /tasks
@@ -82,14 +83,14 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 [
   {
     "id": 1,
-    "title": "Buy groceries",
-    "description": "Milk, eggs, bread",
+    "title": "read book",
+    "description": "finish chapter 5",
     "completed": false
   },
   {
     "id": 2,
-    "title": "Read book",
-    "description": "Finish chapter 5",
+    "title": "do homework",
+    "description": "math exercises page 30",
     "completed": true
   }
 ]
@@ -103,8 +104,8 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 ```
 {
   "id": 1,
-  "title": "Buy groceries",
-  "description": "Milk, eggs, bread",
+  "title": "read book",
+  "description": "finish chapter 5",
   "completed": false
 }
 ```
@@ -117,8 +118,8 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Request body example:
 ```
 {
-  "title": "Buy groceries",
-  "description": "Milk, eggs, bread",
+  "title": "read book",
+  "description": "finish chapter 5",
   "completed": false
 }
 ```
@@ -132,8 +133,8 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Request body example:
 ```
 {
-  "title": "Buy groceries and fruits",
-  "description": "Milk, eggs, bread, apples",
+  "title": "read book",
+  "description": "finish chapter 6 instead of chapter 5",
   "completed": true
 }
 ```
