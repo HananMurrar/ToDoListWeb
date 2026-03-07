@@ -12,7 +12,7 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Language: Java
 - Spring Boot: 4.0.3
 - Project metadata: group: com.example, artifact: todo, Java version: 17
-- Dependencies: Spring web, Spring data JPA, H2 database
+- Dependencies: add Spring web, Spring data JPA, H2 database
 
 ##### 3. Download and extract:
 - Click generate to download the ZIP file
@@ -75,12 +75,10 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Using the web interface or using Postman for API testing
 
 #### API usage examples:
-The backend API for managing tasks can be accessed at:
+You can interact with API using GET, POST, PUT, DELETE requests, the backend API for managing tasks is available at:
 ```
 http://localhost:8080/tasks
 ```
-
-You can interact with it using GET, POST, PUT, DELETE requests
 
 ##### Get all tasks:
 - Method: GET
