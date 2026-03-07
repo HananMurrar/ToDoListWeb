@@ -71,7 +71,10 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Data storage: tasks are stored in H2 in-memory database
 - Server-side validation: ensures tasks have valid data
 
-### API usage examples:
+#### Usage:
+- Using the web interface or using Postman for API testing
+
+#### API usage examples:
 The following shows how to interact with the backend API for managing tasks
 
 ##### Get all tasks:
