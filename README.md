@@ -56,7 +56,7 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 ##### 7. Open your browser and go to:
       http://localhost:8080/index.html
 
-#### Feacures:
+#### Features:
 ##### Frontend:
 - Add task: enter a title (required) and description (optional) to create a new task
 - View tasks: see all tasks listed with their current status
@@ -70,5 +70,81 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Data persistence: tasks stored in H2 in-memory database while the application is running
 - Business logic: handles all task-related logic, like marking completed, updating details, and verifying existence
 - Validation (server-side): validates fields and shows error messages if invalid
+- Backend ensures data integrity and returns proper HTTP status codes for errors
+
+#### Test - Backend API endpoints:
+##### Get all tasks:
+- Method: GET
+- URL: /tasks
+- Description: fetch all tasks stored in the system
+- Response example:
+```
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "description": "Milk, eggs, bread",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Read book",
+    "description": "Finish chapter 5",
+    "completed": true
+  }
+]
+```
+
+##### Get task by ID:
+- Method: GET
+- URL: /tasks/{id}
+- Description: fetch a single task by its ID
+- Response example:
+```
+{
+  "id": 1,
+  "title": "Buy groceries",
+  "description": "Milk, eggs, bread",
+  "completed": false
+}
+```
+- Errors: returns 404 not found if the task does not exist
+
+##### Create a task:
+- Method: POST
+- URL: /tasks
+- Description: create a new task
+- Request body example:
+```
+{
+  "title": "Buy groceries",
+  "description": "Milk, eggs, bread",
+  "completed": false
+}
+```
+- Response: returns the created task with ID
+- Errors: returns 400 bad request if the title is missing
+
+##### Update a task:
+- Method: PUT
+- URL: /tasks/{id}
+- Description: update an existing task’s title, description, or completed status
+- Request body example:
+```
+{
+  "title": "Buy groceries and fruits",
+  "description": "Milk, eggs, bread, apples",
+  "completed": true
+}
+```
+- Response: returns the updated task
+- Errors: returns 404 not found if the task does not exist, returns 400 bad request if the title is empty
+
+##### Delete a task:
+- Method: DELETE
+- URL: /tasks/{id}
+- Description: delete a task by ID
+- Response: returns 200 ok with a confirmation message
+- Errors: returns 404 not found if the task does not exist
 
 #### Screenshot:
