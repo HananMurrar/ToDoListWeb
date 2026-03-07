@@ -76,7 +76,10 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 
 #### API usage examples:
 The backend API for managing tasks can be accessed at:
-      http://localhost:8080/tasks
+```
+http://localhost:8080/tasks
+```
+
 You can interact with it using GET, POST, PUT, DELETE requests
 
 ##### Get all tasks:
