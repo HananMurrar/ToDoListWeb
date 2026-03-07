@@ -75,7 +75,9 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 - Using the web interface or using Postman for API testing
 
 #### API usage examples:
-The following shows how to interact with the backend API for managing tasks
+The backend API for managing tasks can be accessed at:
+      http://localhost:8080/tasks
+You can interact with it using GET, POST, PUT, DELETE requests
 
 ##### Get all tasks:
 - Method: GET
