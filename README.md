@@ -1,7 +1,7 @@
 ### To do list web
 The to-do list is a web application built with Spring Boot that allows users to create, read, update, delete tasks
 
-It includes a simple frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, and H2 database
+It includes a simple frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, H2 database
 
 #### Steps:
 ##### 1. Go to Spring initializr:
@@ -83,7 +83,7 @@ http://localhost:8080/tasks
 ##### Get all tasks:
 - Method: GET
 - URL: /tasks
-- Description: fetch all tasks stored in the system
+- Description: fetch all stored tasks
 - Response example:
 ```
 [
@@ -135,7 +135,7 @@ http://localhost:8080/tasks
 ##### Update a task:
 - Method: PUT
 - URL: /tasks/{id}
-- Description: update an existing task’s title, description, or completed status
+- Description: update an existing tasks title, description, or completed status
 - Request body example:
 ```
 {
