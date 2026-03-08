@@ -8,6 +8,7 @@ import com.example.todo.model.Task;
 import com.example.todo.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,7 @@ public class TaskService {
         // set title, description, completed from DTO
         task.setTitle(dto.getTitle());
         task.setDescription(dto.getDescription());
+        task.setDueDate(dto.getDueDate());
         if (dto.getCompleted() != null)
             task.setCompleted(dto.getCompleted());
 
@@ -76,6 +78,7 @@ public class TaskService {
         // update fields
         task.setTitle(dto.getTitle());
         task.setDescription(dto.getDescription());
+        task.setDueDate(dto.getDueDate());
         if (dto.getCompleted() != null)
             task.setCompleted(dto.getCompleted());
 
@@ -107,6 +110,10 @@ public class TaskService {
         // description max length 200 characters, optional field
         if (dto.getDescription() != null && dto.getDescription().length() > 200)
             throw new TaskDataInvalidException("Description cannot exceed 200 characters");
+
+        // due date cannot be in the past
+        if (dto.getDueDate() != null && dto.getDueDate().isBefore(LocalDate.now()))
+            throw new TaskDataInvalidException("Due date cannot be in the past");
     }
 
     // convert task entity to response DTO
@@ -117,6 +124,7 @@ public class TaskService {
         dto.setId(task.getId());
         dto.setTitle(task.getTitle());
         dto.setDescription(task.getDescription());
+        dto.setDueDate(task.getDueDate());
         dto.setCompleted(task.isCompleted());
 
         // return DTO to controller
