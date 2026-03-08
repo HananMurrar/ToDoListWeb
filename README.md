@@ -1,7 +1,7 @@
 ### To do list web
 The to-do list is a simple web application built with Spring Boot that allows users to create, read, update, delete tasks
 
-It includes a simple frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, H2 database
+It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, H2 database
 
 #### Steps:
 ##### 1. Go to Spring initializr:
@@ -135,12 +135,12 @@ http://localhost:8080/tasks
 }
 ```
 - Response: returns created task with ID
-- Errors: returns 400 bad request if title missing, title < 3 or > 100 chars, description > 200 chars, return 500 internal server error for unexpected errors
+- Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, return 500 internal server error for unexpected errors
 
 ##### Update a task:
 - Method: PUT
 - URL: `/tasks/{id}`
-- Description: update an existing tasks title, description, or completed status
+- Description: update an existing tasks title, description, due date, or completed status
 - Request example:
 ```
 {
@@ -151,14 +151,12 @@ http://localhost:8080/tasks
 }
 ```
 - Response: returns updated task
-- Errors: returns 404 not found if task does not exist, 400 bad request if title invalid, 500 internal server error for server errors
+- Errors: returns 404 not found if task does not exist, 400 bad request if inputes invalid, 500 internal server error for server errors
 
 ##### Delete a task:
 - Method: DELETE
 - URL: `/tasks/{id}`
 - Description: delete a task by ID
-- Response: returns 200 ok with a confirmation message
-- Errors: returns 404 not found if the task does not exist
 - Response: returns 204 no content if task was successfully deleted, this means the request succeeded, but the server does not return any JSON or message in the response body
 - Errors: returns 404 not found if task does not exist
 
