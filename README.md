@@ -1,5 +1,5 @@
 ### To do list web
-The to-do list is a web application built with Spring Boot that allows users to create, read, update, delete tasks
+The to-do list is a simple web application built with Spring Boot that allows users to create, read, update, delete tasks
 
 It includes a simple frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, H2 database
 
@@ -57,102 +57,110 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 
 #### Features:
 ##### Frontend:
-- Add task: enter a title (required) and description (optional) to create a new task
+- Add task: enter a title (required) and description (optional), due date (optional) to create a new task
 - View tasks: see all tasks listed with their current status
-- Update task: edit title, description, or mark a task as completed
+- Update task: edit title, description, due date, or mark a task as completed
 - Delete task: remove tasks from the list
+- Overdue tasks: tasks past their due date are highlighted in red
 - Client-side validation: prevents invalid inputs before sending them to the server
 
 ##### Backend:
-- Task management APIs: provides endpoints for create, read, update, delete operations
-- Error handling: friendly error responses
-- Data storage: tasks stored in H2 in-memory database while the application is running
-- Business logic: handles task updates, completion status, data validation
-- Server-side validation: ensures tasks have valid data
+- REST API endpoints: provides endpoints for CRUD operations, all endpoints return JSON responses and use proper HTTP status code
+- Error handling: returns clear and descriptive error messages with appropriate HTTP status codes
+- Data storage: tasks stored in H2 in-memory database
+- Business logic: validates data and manages task state
+- Server-side validation: ensures all tasks have valid data
 
 #### Usage:
-- Using the web interface or using Postman for API testing
+- Through web interface or Postman to call API directly
 
-#### API usage examples:
-You can interact with API using GET, POST, PUT, DELETE requests, the backend API for managing tasks is available at:
+#### API endpoints:
+You can interact with API using GET, POST, PUT, DELETE requests, and the base URL:
 ```
 http://localhost:8080/tasks
 ```
 
 ##### Get all tasks:
 - Method: GET
-- URL: /tasks
-- Description: fetch all stored tasks
+- URL: `/tasks`
+- Description: fetch all tasks
 - Response example:
 ```
 [
   {
     "id": 1,
-    "title": "read book",
-    "description": "finish chapter 5",
+    "title": "Read book",
+    "description": "Finish chapter 5",
+    "dueDate": "20/03/2026",
     "completed": false
   },
   {
     "id": 2,
-    "title": "do homework",
-    "description": "math exercises page 30",
+    "title": "Homework",
+    "description": "Math exercises page 30",
+    "dueDate": null,
     "completed": true
   }
 ]
 ```
+- Errors: returns 500 internal server error if server fails
 
 ##### Get task by ID:
 - Method: GET
-- URL: /tasks/{id}
+- URL: `/tasks/{id}`
 - Description: fetch a single task by its ID
 - Response example:
 ```
 {
   "id": 1,
-  "title": "read book",
-  "description": "finish chapter 5",
+  "title": "Read book",
+  "description": "Finish chapter 5",
+  "dueDate": "20/03/2026",
   "completed": false
 }
 ```
-- Errors: returns 404 not found if the task does not exist
+- Errors: returns 404 not found if task ID does not exist, 500 internal server error for server issues
 
 ##### Create a task:
 - Method: POST
-- URL: /tasks
+- URL: `/tasks`
 - Description: create a new task
-- Request body example:
+- Request example:
 ```
 {
-  "title": "read book",
-  "description": "finish chapter 5",
+  "title": "Read book",
+  "description": "Finish chapter 5",
+  "dueDate": "20/03/2026",
   "completed": false
 }
 ```
-- Response: returns the created task with ID
-- Errors: returns 400 bad request if the title is missing
+- Response: returns created task with ID
+- Errors: returns 400 bad request if title missing, title < 3 or > 100 chars, description > 200 chars, return 500 internal server error for unexpected errors
 
 ##### Update a task:
 - Method: PUT
-- URL: /tasks/{id}
+- URL: `/tasks/{id}`
 - Description: update an existing tasks title, description, or completed status
-- Request body example:
+- Request example:
 ```
 {
-  "title": "read book",
-  "description": "finish chapter 6 instead of chapter 5",
+  "title": "Read book",
+  "description": "Finish chapter 6 instead of chapter 5",
+  "dueDate": "25/03/2026",
   "completed": true
 }
 ```
-- Response: returns the updated task
-- Errors: returns 404 not found if the task does not exist, returns 400 bad request if the title is empty
+- Response: returns updated task
+- Errors: returns 404 not found if task does not exist, 400 bad request if title invalid, 500 internal server error for server errors
 
 ##### Delete a task:
 - Method: DELETE
-- URL: /tasks/{id}
+- URL: `/tasks/{id}`
 - Description: delete a task by ID
 - Response: returns 200 ok with a confirmation message
 - Errors: returns 404 not found if the task does not exist
+- Response: returns 204 no content if task was successfully deleted, this means the request succeeded, but the server does not return any JSON or message in the response body
+- Errors: returns 404 not found if task does not exist
 
 #### Screenshot:
 ![1](https://raw.githubusercontent.com/HananMurrar/ToDoListWeb/main/todo/result.png)
-
