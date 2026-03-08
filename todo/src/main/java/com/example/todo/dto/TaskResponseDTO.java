@@ -1,10 +1,13 @@
 package com.example.todo.dto;
 
+import java.time.LocalDate;
+
 // the DTO for sending data back to client
 public class TaskResponseDTO {
     private Long id;
     private String title;
     private String description;
+    private LocalDate dueDate;
     private boolean completed;
 
     public Long getId() {
@@ -29,6 +32,14 @@ public class TaskResponseDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public boolean isCompleted() {
