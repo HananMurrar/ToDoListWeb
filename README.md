@@ -66,9 +66,8 @@ It includes a simple frontend with HTML, CSS, JS, and a backend built with Sprin
 ##### Backend:
 - Task management APIs: provides endpoints for create, read, update, delete operations
 - Error handling: friendly error responses
-- Data persistence: tasks stored in H2 in-memory database while the application is running
+- Data storage: tasks stored in H2 in-memory database while the application is running
 - Business logic: handles task updates, completion status, data validation
-- Data storage: tasks are stored in H2 in-memory database
 - Server-side validation: ensures tasks have valid data
 
 #### Usage:
