@@ -57,12 +57,13 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 
 #### Features:
 ##### Frontend:
-- Add task: enter a title (required) and description (optional), due date (optional) to create a new task
-- View tasks: see all tasks listed with their status and due dates
-- Update task: edit title, description, due date, or mark a task as completed
-- Delete task: remove tasks from the list
-- Overdue tasks: tasks past their due date are highlighted in red
-- Client-side validation: prevents invalid inputs before sending them to the server
+- Add task: enter a title (required), description (optional), due date (optional) to create a new task
+- View tasks: displays all tasks with their data
+- Update task: user can edit title, description, due date, or mark a task as completed
+- Delete task: tasks can be removed from the list
+- Overdue tasks: tasks past their due date are automatically highlighted in red
+- Completed tasks: tasks marked as completed are highlighted in green and the title is crossed out
+- Client-side validation: prevents invalid inputs before sending data to the backend
 
 ##### Backend:
 - REST API endpoints: provides endpoints for CRUD operations, all endpoints return JSON responses and use proper HTTP status codes
