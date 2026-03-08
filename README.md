@@ -1,5 +1,5 @@
 ### To do list web
-The to-do list is a simple web application built with Spring Boot that allows users to create, read, update, delete tasks
+The to-do list is a simple web application built with Spring Boot that allows users to create, read, update, and delete tasks
 
 It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot, Spring data JPA, H2 database
 
@@ -58,16 +58,16 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 #### Features:
 ##### Frontend:
 - Add task: enter a title (required) and description (optional), due date (optional) to create a new task
-- View tasks: see all tasks listed with their current status
+- View tasks: see all tasks listed with their status and due dates
 - Update task: edit title, description, due date, or mark a task as completed
 - Delete task: remove tasks from the list
 - Overdue tasks: tasks past their due date are highlighted in red
 - Client-side validation: prevents invalid inputs before sending them to the server
 
 ##### Backend:
-- REST API endpoints: provides endpoints for CRUD operations, all endpoints return JSON responses and use proper HTTP status code
+- REST API endpoints: provides endpoints for CRUD operations, all endpoints return JSON responses and use proper HTTP status codes
 - Error handling: returns clear and descriptive error messages with appropriate HTTP status codes
-- Data storage: tasks stored in H2 in-memory database
+- Data storage: tasks are stored in H2 in-memory database while the application is running
 - Business logic: validates data and manages task state
 - Server-side validation: ensures all tasks have valid data
 
@@ -91,7 +91,7 @@ http://localhost:8080/tasks
     "id": 1,
     "title": "Read book",
     "description": "Finish chapter 5",
-    "dueDate": "20/03/2026",
+    "dueDate": "2026-03-20",
     "completed": false
   },
   {
@@ -115,7 +115,7 @@ http://localhost:8080/tasks
   "id": 1,
   "title": "Read book",
   "description": "Finish chapter 5",
-  "dueDate": "20/03/2026",
+  "dueDate": "2026-03-20",
   "completed": false
 }
 ```
@@ -130,7 +130,7 @@ http://localhost:8080/tasks
 {
   "title": "Read book",
   "description": "Finish chapter 5",
-  "dueDate": "20/03/2026",
+  "dueDate": "2026-03-20",
   "completed": false
 }
 ```
@@ -146,12 +146,12 @@ http://localhost:8080/tasks
 {
   "title": "Read book",
   "description": "Finish chapter 6 instead of chapter 5",
-  "dueDate": "25/03/2026",
+  "dueDate": "2026-03-25",
   "completed": true
 }
 ```
 - Response: returns updated task
-- Errors: returns 404 not found if task does not exist, 400 bad request if inputes invalid, 500 internal server error for server errors
+- Errors: returns 404 not found if task does not exist, 400 bad request if inputs are invalid, 500 internal server error for server errors
 
 ##### Delete a task:
 - Method: DELETE
