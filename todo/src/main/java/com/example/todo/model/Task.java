@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
+
 // this class represents a table in the H2 DB
 @Entity
 // explicitly set table name
@@ -20,6 +22,7 @@ public class Task {
     private Long id;
     private String title;
     private String description;
+    private LocalDate dueDate;
     private boolean completed = false;
 
     public Long getId() {
@@ -44,6 +47,14 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public boolean isCompleted() {
