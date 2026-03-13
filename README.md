@@ -25,8 +25,7 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 ```
 📁 todo/
 └── src/
-    └── main/java/com/example/todo/
-        ├── TodoApplication.java   
+    └── main/java/com/example/todo/  
         ├── controller/
             └── TaskController.java        // Handles API endpoints
         ├── service/
@@ -41,7 +40,8 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
         └── exception/
             ├── TaskNotFoundException.java       
             ├── TaskDataInvalidException.java    
-            └── GlobalExceptionHandler.java      
+            └── GlobalExceptionHandler.java
+        ├── TodoApplication.java     
 
     └── main/resources/static/
         └── index.html                  
