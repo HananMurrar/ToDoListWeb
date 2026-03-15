@@ -7,7 +7,7 @@ The to-do list is a simple Spring Boot web application that allows users to effi
       
 ##### 2. Create a new project with these settings:
 - Project: Maven
-- Language: Java
+- Language: `Java`
 - Spring Boot: 4.0.3
 - Project metadata: group: `com.example`, artifact: `todo`, Java version: 17
 - Dependencies: add `Spring web`, `Spring data JPA`, `H2 database`
