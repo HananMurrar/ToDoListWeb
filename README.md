@@ -156,7 +156,7 @@ http://localhost:8080/tasks
 - Method: `DELETE`
 - URL: `/tasks/{id}`
 - Description: delete a task by ID
-- Response: returns 204 no content if task was successfully deleted, this means the request succeeded, but the server does not return any JSON or message in the response body
+- Response: returns 204 no content if task was successfully deleted, this means the request succeeded, but the server does not return anything in the response body
 - Errors: returns 404 not found if task does not exist
 
 #### Screenshot:
