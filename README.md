@@ -19,7 +19,7 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 - Extract it to a folder on your computer
 
 ##### 4. Open in IntelliJ:
-- Open the IntelliJ, select open then choose the extracted folder
+- Open the `IntelliJ`, select open then choose the extracted folder
 
 ##### 5. Create this structure:
 ```
@@ -50,7 +50,7 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 ```
 
 ##### 6. Run:
-- Run the `TodoApplication.java` in the IntelliJ
+- Run the `TodoApplication.java` class
 
 ##### 7. Open your browser and go to:
       http://localhost:8080/index.html
