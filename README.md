@@ -17,7 +17,7 @@ The to-do list is a simple Spring Boot web application that allows users to effi
 - Extract it to a folder on your computer
 
 ##### 4. Open in IntelliJ:
-- Open the `IntelliJ`, select open then choose the extracted folder
+- Open the IntelliJ, select open then choose the extracted folder
 
 ##### 5. Create this structure:
 ```
@@ -71,7 +71,7 @@ The to-do list is a simple Spring Boot web application that allows users to effi
 - Server-side validation: ensures all tasks have valid data
 
 #### Usage:
-- Through web interface or `Postman` to call API directly
+- Through web interface or Postman to call API directly
 
 #### API endpoints:
 You can interact with the API using `HTTP` requests, and the base URL is:
