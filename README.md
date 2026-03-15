@@ -11,8 +11,8 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 - Project: Maven
 - Language: Java
 - Spring Boot: 4.0.3
-- Project metadata: group: com.example, artifact: todo, Java version: 17
-- Dependencies: add Spring web, Spring data JPA, H2 database
+- Project metadata: group: `com.example`, artifact: `todo`, Java version: 17
+- Dependencies: add `Spring web`, `Spring data JPA`, `H2 database`
 
 ##### 3. Download and extract:
 - Click generate to download the ZIP file
@@ -50,7 +50,7 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 ```
 
 ##### 6. Run:
-- Run the TodoApplication.java in the IntelliJ
+- Run the `TodoApplication.java` in the IntelliJ
 
 ##### 7. Open your browser and go to:
       http://localhost:8080/index.html
@@ -66,23 +66,23 @@ It includes a frontend with HTML, CSS, JS, and a backend built with Spring Boot,
 - Client-side validation: prevents invalid inputs before sending data to the backend
 
 ##### Backend:
-- REST API endpoints: provides endpoints for CRUD operations, all endpoints return JSON responses and use proper HTTP status codes
-- Error handling: returns clear and descriptive error messages with appropriate HTTP status codes
-- Data storage: tasks are stored in H2 in-memory database while the application is running
+- REST API endpoints: provides endpoints for CRUD operations, all endpoints return `JSON` responses and use proper `HTTP` status codes
+- Error handling: returns clear and descriptive error messages with appropriate `HTTP` status codes
+- Data storage: tasks are stored in `H2` in-memory database while the application is running
 - Business logic: validates data and manages task state
 - Server-side validation: ensures all tasks have valid data
 
 #### Usage:
-- Through web interface or Postman to call API directly
+- Through web interface or `Postman` to call API directly
 
 #### API endpoints:
-You can interact with API using GET, POST, PUT, DELETE requests, and the base URL:
+You can interact with the API using `HTTP` requests, and the base URL is:
 ```
 http://localhost:8080/tasks
 ```
 
 ##### Get all tasks:
-- Method: GET
+- Method: `GET`
 - URL: `/tasks`
 - Description: fetch all tasks
 - Response example:
@@ -107,7 +107,7 @@ http://localhost:8080/tasks
 - Errors: returns 500 internal server error if server fails
 
 ##### Get task by ID:
-- Method: GET
+- Method: `GET`
 - URL: `/tasks/{id}`
 - Description: fetch a single task by its ID
 - Response example:
@@ -123,7 +123,7 @@ http://localhost:8080/tasks
 - Errors: returns 404 not found if task ID does not exist, 500 internal server error for server issues
 
 ##### Create a task:
-- Method: POST
+- Method: `POST`
 - URL: `/tasks`
 - Description: create a new task
 - Request example:
@@ -139,7 +139,7 @@ http://localhost:8080/tasks
 - Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, return 500 internal server error for unexpected errors
 
 ##### Update a task:
-- Method: PUT
+- Method: `PUT`
 - URL: `/tasks/{id}`
 - Description: update an existing tasks title, description, due date, or completed status
 - Request example:
@@ -155,7 +155,7 @@ http://localhost:8080/tasks
 - Errors: returns 404 not found if task does not exist, 400 bad request if inputs are invalid, 500 internal server error for server errors
 
 ##### Delete a task:
-- Method: DELETE
+- Method: `DELETE`
 - URL: `/tasks/{id}`
 - Description: delete a task by ID
 - Response: returns 204 no content if task was successfully deleted, this means the request succeeded, but the server does not return any JSON or message in the response body
