@@ -57,10 +57,10 @@ The to-do list is a simple Spring Boot web application built using domain driven
 The domain driven design - DDD is a software design approach that focuses on organizing the code around the core business logic rather than technical details
 
 ##### In this project:
-- The **domain entity** is represented by the `Task.java` class, which contains all business rules and input data validations
-- The **service layer** is represented by the `TaskService.java` class, which manages how tasks are created, updated, retrieved, and deleted by coordinating between the domain and the repository
+- The **domain entity** is represented by `Task.java` class, which contains all business rules and input data validations
+- The **service layer** is represented by `TaskService.java` class, which manages how tasks are created, updated, retrieved, and deleted by coordinating between the domain and the repository
 - The **controller layer** is represented by `TaskController.java`, handles `HTTP` requests and delegates all logic to the service layer
-- The **repository layer** is responsible only for database operations
+- The **repository layer** is represented by `TaskRepository.java`, only for database operations
 - The **data transfer objects - DTO** is represented by `TaskRequestDTO.java` and `TaskResponseDTO.java`, are used to transfer data between the client and the server, keeping the domain entity independent from external input and output
 - The **custom exceptions** is represented by `TaskNotFoundException` and `TaskDataInvalidException`, are used to handle errors clearly, and `GlobalExceptionHandler` ensures proper `HTTP` responses
 
