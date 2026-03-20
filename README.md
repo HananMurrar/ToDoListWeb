@@ -38,7 +38,7 @@ The to-do list is a simple Spring Boot web application built using domain driven
         └── exception/
             ├── TaskNotFoundException.java      
             ├── TaskDataInvalidException.java   
-            └── GlobalExceptionHandler.java      // Handles exceptions globally and returns proper HTTP responses
+            └── GlobalExceptionHandler.java      
         ├── TodoApplication.java             
 
     └── main/resources/static/
@@ -59,10 +59,10 @@ The domain driven design - DDD is a software design approach that focuses on org
 ##### In this project:
 - The **domain entity** is represented by the `Task.java` class, which contains all business rules and input data validations
 - The **service layer** is represented by the `TaskService.java` class, which manages how tasks are created, updated, retrieved, and deleted by coordinating between the domain and the repository
-- The **controller layer** is represented by `TaskController.java`, handles HTTP requests and delegates all logic to the service layer
+- The **controller layer** is represented by `TaskController.java`, handles `HTTP` requests and delegates all logic to the service layer
 - The **repository layer** is responsible only for database operations
 - The **data transfer objects - DTO** is represented by `TaskRequestDTO.java` and `TaskResponseDTO.java`, are used to transfer data between the client and the server, keeping the domain entity independent from external input and output
-- The **custom exceptions** is represented by `TaskNotFoundException` and `TaskDataInvalidException`, are used to handle errors clearly, and `GlobalExceptionHandler` ensures proper HTTP responses
+- The **custom exceptions** is represented by `TaskNotFoundException` and `TaskDataInvalidException`, are used to handle errors clearly, and `GlobalExceptionHandler` ensures proper `HTTP` responses
 
 ##### This structure ensures:
 - Clear separation of concerns
@@ -135,7 +135,7 @@ http://localhost:8080/tasks
   "completed": false
 }
 ```
-- Errors: returns 404 not found if task ID does not exist, 500 internal server error for server issues
+- Errors: returns 404 not found if task ID does not exist, returns 500 internal server error for server issues
 
 ##### Create a task:
 - Method: `POST`
@@ -151,7 +151,7 @@ http://localhost:8080/tasks
 }
 ```
 - Response: returns 201 created with the created task
-- Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, due date in the past, return 500 internal server error for unexpected errors
+- Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, due date in the past, returns 500 internal server error for unexpected errors
 
 ##### Update a task:
 - Method: `PUT`
@@ -167,7 +167,7 @@ http://localhost:8080/tasks
 }
 ```
 - Response: returns updated task
-- Errors: returns 404 not found if task does not exist, 400 bad request if input violates domain rules, 500 internal server error for server errors
+- Errors: returns 404 not found if task does not exist, returns 400 bad request if input violates domain rules, returns 500 internal server error for server errors
 
 ##### Delete a task:
 - Method: `DELETE`
