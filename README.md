@@ -1,5 +1,5 @@
 ### To do list web
-The to-do list is a simple Spring Boot web application that allows users to efficiently create, read, update, and delete tasks
+The to-do list is a simple Spring Boot web application built using domain driven design principles, it allows users to efficiently create, read, update, and delete tasks
 
 #### Steps:
 ##### 1. Go to Spring initializr:
@@ -25,26 +25,26 @@ The to-do list is a simple Spring Boot web application that allows users to effi
 └── src/
     └── main/java/com/example/todo/  
         ├── controller/
-            └── TaskController.java        // Handles API endpoints
+            └── TaskController.java              // Handles HTTP API endpoints, interacts with the service
         ├── service/
-            └── TaskService.java           // Contains business logic
+            └── TaskService.java                 // Contains business logic and orchestrates domain actions
         ├── repository/
-            └── TaskRepository.java        // Interacts with H2 database
-        ├── model/
-            └── Task.java                  // Entity representing a task
+            └── TaskRepository.java              // Interfaces with the H2 DB
+        ├── domain/
+            └── Task.java                        // Core domain entity representing a task with all business rules
         ├── dto/
-            ├── TaskRequestDTO.java        // DTO for incoming requests
-            └── TaskResponseDTO.java       // DTO for outgoing responses
+            ├── TaskRequestDTO.java              // DTO for incoming requests
+            └── TaskResponseDTO.java             // DTO for outgoing responses
         └── exception/
-            ├── TaskNotFoundException.java       
-            ├── TaskDataInvalidException.java    
-            └── GlobalExceptionHandler.java
-        ├── TodoApplication.java     
+            ├── TaskNotFoundException.java      
+            ├── TaskDataInvalidException.java   
+            └── GlobalExceptionHandler.java      // Handles exceptions globally and returns proper HTTP responses
+        ├── TodoApplication.java             
 
     └── main/resources/static/
-        └── index.html                  
+        └── index.html                        
     └── main/resources/
-        └── application.properties        
+        └── application.properties                  
 ```
 
 ##### 6. Run:
@@ -52,6 +52,23 @@ The to-do list is a simple Spring Boot web application that allows users to effi
 
 ##### 7. Open your browser and go to:
       http://localhost:8080/index.html
+
+#### Domain driven design principles:
+The domain driven design - DDD is a software design approach that focuses on organizing the code around the core business logic rather than technical details
+
+##### In this project:
+- The **domain entity** is represented by the `Task.java` class, which contains all business rules and input data validations
+- The **service layer** is represented by the `TaskService.java` class, which manages how tasks are created, updated, retrieved, and deleted by coordinating between the domain and the repository
+- The **controller layer** is represented by `TaskController.java`, handles HTTP requests and delegates all logic to the service layer
+- The **repository layer** is responsible only for database operations
+- The **data transfer objects - DTO** is represented by `TaskRequestDTO.java` and `TaskResponseDTO.java`, are used to transfer data between the client and the server, keeping the domain entity independent from external input and output
+- The **custom exceptions** is represented by `TaskNotFoundException` and `TaskDataInvalidException`, are used to handle errors clearly, and `GlobalExceptionHandler` ensures proper HTTP responses
+
+##### This structure ensures:
+- Clear separation of concerns
+- Centralized and consistent business logic
+- Better error handling
+- Easier maintenance and scalability
 
 #### Features:
 ##### Frontend:
@@ -65,11 +82,11 @@ The to-do list is a simple Spring Boot web application that allows users to effi
 
 ##### Backend:
 - REST API endpoints: provides endpoints for CRUD operations, all endpoints return `JSON` responses and use proper `HTTP` status codes
-- Error handling: returns clear and descriptive error messages with appropriate `HTTP` status codes
+- Error handling: returns clear and descriptive error messages
 - Data storage: tasks are stored in `H2` in-memory database while the application is running
-- Business logic: validates data and manages task state
+- Business logic and domain driven design: the `Task.java` contains all business rules and validations, and the `TaskService.java` manages how tasks are created, updated, retrieved, and deleted by coordinating calls to the domain entity and the repository
 - Server-side validation: ensures all tasks have valid data
-
+  
 #### Usage:
 - Through web interface or Postman to call API directly
 
@@ -133,8 +150,8 @@ http://localhost:8080/tasks
   "completed": false
 }
 ```
-- Response: returns created task with ID
-- Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, return 500 internal server error for unexpected errors
+- Response: returns 201 created with the created task
+- Errors: returns 400 bad request if title missing, title < 3 or title > 100 chars, description > 200 chars, due date in the past, return 500 internal server error for unexpected errors
 
 ##### Update a task:
 - Method: `PUT`
@@ -150,7 +167,7 @@ http://localhost:8080/tasks
 }
 ```
 - Response: returns updated task
-- Errors: returns 404 not found if task does not exist, 400 bad request if inputs are invalid, 500 internal server error for server errors
+- Errors: returns 404 not found if task does not exist, 400 bad request if input violates domain rules, 500 internal server error for server errors
 
 ##### Delete a task:
 - Method: `DELETE`
